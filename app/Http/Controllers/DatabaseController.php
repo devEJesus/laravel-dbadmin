@@ -32,9 +32,11 @@ class DatabaseController extends Controller
         if ($data->input('table')) {
             $this->tableService->setTable($data->input('table'));
             $table = $this->tableService->getTableData();
+            // Inertia::share('flash.message', config('app.name')); # Send notification
         } else {
             $table = new TableData(collect(), collect());
         }
+
 
         return Inertia::render("Database/Index", ['tables' => $items, 'table' => $table]);
     }

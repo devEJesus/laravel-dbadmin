@@ -35,6 +35,9 @@ const options = {
             <div class="col-span-2 mx-3 mt-6 flex flex-col rounded-lg bg-gray-800 text-white">
                 <SideCard title="Tables" :items="$page.props.tables"></SideCard>
             </div>
+            <div v-if="$page.props.flash.message" class="alert">
+                {{ $page.props.flash.message }}
+            </div>
             <div class="col-span-10 mx-3 mt-6 flex flex-col rounded-lg bg-gray-800 text-white">
                 <div class="w-full">
                     <!-- <div class="inset-y-0 left-0  w-64 p-4">
@@ -50,21 +53,6 @@ const options = {
                             </thead>
                         </DataTable>
                     </div>
-                    <!-- <div class="p-4">
-                        <table :data="$page.props.table.body" class="table table-hover table-striped" width="100%">
-                            <thead>
-                                <tr>
-                                    <th v-for="header in $page.props.table.header" :key="header">{{ header }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in $page.props.table.body">
-                                    <td v-for="value in row">{{ value }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div> -->
-
                 </div>
             </div>
         </div>
